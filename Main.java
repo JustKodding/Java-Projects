@@ -1,27 +1,38 @@
 package application;
-	
-
+ 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 
-public class Main extends Application
-{
-     public void start(Stage stage)
-     {
-          TextField tf = new TextField("ABC");
-          Label label = new Label("xyz");
-          tf.setText("123" + label.getText());
-          VBox pane = new VBox();
-          pane.getChildren().addAll(tf, label);
+public class Main extends Application {
+ 
+	
 
-          Scene scene = new Scene(pane, 180, 100);
-          stage.setTitle("LabelText");
-          stage.setScene(scene);
-          stage.show();
-     }
+	
+	
+ @Override
+ public void start(Stage stage) {
+	  try {
+		 
+	
+	   Parent root = FXMLLoader.load(getClass().getResource("SDbank.fxml"));
+	   Scene scene = new Scene(root);
+	   stage.setScene(scene);
+	   stage.show();
+	   
+	  } catch(Exception e) {
+	   e.printStackTrace();
+	  }
+	 } 
+	
+	 public static void main(String[] args) throws IOException {
+			
+		 	launch(args);
+	 }
 }
